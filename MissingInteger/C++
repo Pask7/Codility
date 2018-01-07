@@ -1,0 +1,27 @@
+using namespace std;
+#include <vector>
+
+int solution(vector<int> &A) {
+int max = A[0];
+for( size_t i = 0; i < A.size(); ++i )
+{
+if( max < A[i] )
+max = A[i];
+
+}
+if( max <= 0 )
+return 1;
+
+vector<int> range(max +1 );
+for( size_t i = 0; i < A.size(); ++i )
+{
+if( A[i] > 0 )
+range[A[i]-1] = 1;
+}
+for( size_t i = 0; i < range.size();++i )
+{
+if( !range[i])
+return i+1;
+}
+return max;
+}
